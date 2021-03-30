@@ -1,4 +1,4 @@
-import { Vue } from "https://unpkg.com/vue@next"
+import { Vue } from "https://dev.jspm.io/vue"
 
 const Main = {
   template: `<Sample></Sample>`
