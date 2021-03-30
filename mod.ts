@@ -1,5 +1,5 @@
 import { Vue } from "https://unpkg.com/vue@next"
-import Sample from "./Sample.ts"
+import Sample from "./Sample.js"
 
 const Main = {
   template: `<Sample></Sample>`
