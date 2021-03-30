@@ -1,8 +1,16 @@
 import { Vue } from "https://unpkg.com/vue@next"
-import Sample from "./Sample.js"
 
 const Main = {
   template: `<Sample></Sample>`
+}
+
+const Sample = {
+  data() {
+    return {
+      message: "Hello Deno!"
+    }
+  },
+  template: `<div>{{message}}</div>`
 }
 
 app = Vue.createApp(Main)
