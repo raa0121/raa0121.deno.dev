@@ -1,4 +1,4 @@
-export const Sample = {
+export default const Sample = {
   data() {
     return {
       message: "Hello Deno!"
