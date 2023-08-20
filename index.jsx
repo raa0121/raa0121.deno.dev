@@ -1,9 +1,9 @@
 export default function ({ songs }) {
   return <>
-    <h1>猫魔しろあ歌枠セットリスト</h1>
+    <h1 class="text-4xl font-bold">猫魔しろあ歌枠セットリスト</h1>
 
     {songs.map((song) => (
-      <div>
+      <div class="grid grid-cols-2">
         <p>{ song.archiveTitle }</p>
         <a class="overlay-event" data-url={ song.startURL }>{ song.song }</a>
       </div>
@@ -11,7 +11,7 @@ export default function ({ songs }) {
     <div id="overlay" class="overlay-event">
       <div class="flex">
         <div id="overlay-inner">
-          <iframe id="embed" allowfullscreen="" frameborder="0" height="315" width="420" src=""></iframe>
+          <iframe id="embed" allowfullscreen="" frameborder="0" height="" width="" src=""></iframe>
           <button id="close-btn" class="overlay-event" type="button">Close</button>
         </div>
       </div>
