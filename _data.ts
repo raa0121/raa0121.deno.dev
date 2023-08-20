@@ -15,4 +15,9 @@ const response = await fetch(
 const data = (await response.json()) as Response;
 const songs = data.songs;
 const layout = "layout.tsx";
+
 export { layout, songs };
+export type Data = {
+  layout: string;
+  songs: Song[];
+};

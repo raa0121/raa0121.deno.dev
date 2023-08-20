@@ -1,4 +1,6 @@
-export default function ({ songs }) {
+import type { Data } from "./_data.ts";
+
+export default function ({ songs }: Data) {
   return (
     <>
       <h1 class="text-4xl font-bold">猫魔しろあ歌枠セットリスト</h1>
@@ -7,8 +9,9 @@ export default function ({ songs }) {
           <div id="overlay-inner">
             <iframe
               id="embed"
-              allowfullscreen=""
-              frameborder="0"
+              // FIXME: "" not allowed here
+              // allowFullScreen=""
+              frameBorder="0"
               height=""
               width=""
               src=""
