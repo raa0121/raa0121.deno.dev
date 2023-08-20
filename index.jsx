@@ -1,13 +1,6 @@
 export default function ({ songs }) {
   return <>
     <h1 class="text-4xl font-bold">猫魔しろあ歌枠セットリスト</h1>
-
-    {songs.map((song) => (
-      <div class="grid grid-cols-2">
-        <p>{ song.archiveTitle }</p>
-        <a class="overlay-event" data-url={ song.startURL }>{ song.song }</a>
-      </div>
-    ))}
     <div id="overlay" class="overlay-event">
       <div class="flex">
         <div id="overlay-inner">
@@ -16,6 +9,11 @@ export default function ({ songs }) {
         </div>
       </div>
     </div>
-
+    {songs.map((song) => (
+      <div class="grid grid-cols-2">
+        <p>{ song.archiveTitle }</p>
+        <a class="overlay-event" data-url={ song.startURL }>{ song.song }</a>
+      </div>
+    ))}
   </>;
 }
