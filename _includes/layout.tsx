@@ -15,7 +15,7 @@ export default (props: PageProps) => (
     </head>
     <body>
       <Header />
-      <div class="p-10">
+      <div>
         {props.children}
       </div>
     </body>
