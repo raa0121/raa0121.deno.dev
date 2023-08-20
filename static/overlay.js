@@ -8,8 +8,8 @@ document.addEventListener(
       const embed = document.querySelector("#embed");
       console.log(embed);
       embed.src = e.currentTarget.dataset.url + "&autoplay=1";
-      embed.width = Math.ceil(window.screen.width * 0.7);
-      embed.height = Math.ceil(window.screen.height * 0.7);
+      embed.width = Math.ceil(window.innerWidth * 0.7);
+      embed.height = Math.ceil(window.innerHeight * 0.7);
     }
     // 指定した要素に対して上記関数を実行するクリックイベントを設定
     const clickArea = document.querySelectorAll('.overlay-event');
