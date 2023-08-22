@@ -8,6 +8,8 @@ export default function ({ songs }: Data) {
   return (
     <>
       <h1 class="text-4xl font-bold">猫魔しろあ歌枠セットリスト</h1>
+      <input id="autoplay" class="toggle_input" type="checkbox" />
+      <label for="autoplay" class="toggle_label"></label>
       <div id="overlay" class="overlay-event">
         <div class="flex">
           <div id="overlay-inner">
