@@ -7,9 +7,12 @@ export { title, description, keywords };
 export default function ({ songs }: Data) {
   return (
     <>
-      <h1 class="text-4xl font-bold">猫魔しろあ歌枠セットリスト</h1>
-      <input id="autoplay" class="toggle_input" type="checkbox" />
-      <label for="autoplay" class="toggle_label"></label>
+      <div class="box">
+        <h1 class="text-4xl font-bold">猫魔しろあ歌枠セットリスト</h1>
+        <h2 class="text-2xl">自動再生</h2>
+        <input id="autoplay" class="toggle_input" type="checkbox" />
+        <label for="autoplay" class="toggle_label"></label>
+      </div>
       <div id="overlay" class="overlay-event">
         <div class="flex">
           <div id="overlay-inner">
@@ -33,7 +36,7 @@ export default function ({ songs }: Data) {
         {songs.map((song) => (
           <div class="grid grid-cols-2">
             <p>{song.archiveTitle}</p>
-            <a class="overlay-event" data-url={song.startURL}>
+            <a class="text-blue-700 overlay-event" data-url={song.startURL}>
               {song.song}
             </a>
           </div>
