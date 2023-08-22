@@ -32,7 +32,7 @@ export default function ({ songs }: Data) {
           </div>
         </div>
       </div>
-      <div class="p-10">
+      <div class="p-10 scroll">
         {songs.map((song) => (
           <div class="grid grid-cols-2">
             <p>{song.archiveTitle}</p>

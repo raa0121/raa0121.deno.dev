@@ -23,7 +23,9 @@ document.addEventListener(
     function overlayClose(e) {
       if (e.key === 'Escape' && 0 < Array.from(overlay.classList).filter((v) => v === 'overlay-on').length) {
         overlay.classList.toggle('overlay-on');
-        stopEvent(e);
+        const embed = document.querySelector("#embed");
+        embed.src = "";
+        e.stopPropagation();
       }
     }
 

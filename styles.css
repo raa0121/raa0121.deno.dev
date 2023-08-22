@@ -7,6 +7,11 @@
   align-items: flex-end;
 }
 
+.scroll {
+  height: 800px;
+  overflow: auto;
+}
+
 #overlay{
   position: fixed;
   top:0;
