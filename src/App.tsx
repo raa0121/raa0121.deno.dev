@@ -1,10 +1,24 @@
-import type { Data } from "./_data.ts";
 const title = "猫魔しろあ歌枠セットリスト";
-const description = "個人VTuber 猫魔しろあの歌枠のセットリストです。曲名をクリックすると、該当楽曲を再生できます。";
+const description =
+  "個人VTuber 猫魔しろあの歌枠のセットリストです。曲名をクリックすると、該当楽曲を再生できます。";
 const keywords = "VTuber,個人VTuber,猫魔しろあ";
-export { title, description, keywords };
+// export { description, keywords, title };
 
-export default function ({ songs }: Data) {
+type Song = {
+  archiveTime: Date;
+  archiveTitle: string;
+  song: string;
+  data: string;
+  startURL: string;
+};
+type Response = {
+  status: "ok" | "ng";
+  songs: Song[];
+};
+
+const App = () => {
+  const songs: Song[] = [];
+
   return (
     <>
       <div class="box">
@@ -44,4 +58,6 @@ export default function ({ songs }: Data) {
       </div>
     </>
   );
-}
+};
+
+export default <App />;
