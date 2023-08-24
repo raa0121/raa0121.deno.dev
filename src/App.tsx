@@ -1,3 +1,5 @@
+import { useEffect, useState } from "npm:preact/hooks";
+
 const title = "猫魔しろあ歌枠セットリスト";
 const description =
   "個人VTuber 猫魔しろあの歌枠のセットリストです。曲名をクリックすると、該当楽曲を再生できます。";
@@ -17,7 +19,15 @@ type Response = {
 };
 
 const App = () => {
-  const songs: Song[] = [];
+  const [songs, setSongs] = useState<Song[]>([]);
+
+  useEffect(() => {
+    (async () => {
+      const res = await fetch("/data.json");
+      const data = (await res.json()) as Song[];
+      setSongs(data);
+    })();
+  }, []);
 
   return (
     <>
