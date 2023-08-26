@@ -23,7 +23,7 @@ export default function (_data: unknown, { url }: Helpers) {
 </head>
 
 <body>
-  <section class="todoapp" id="app">${ssr}</section>
+  <section id="app">${ssr}</section>
   <footer class="info">
     <p>©2023+ raa0121</p>
   </footer>
