@@ -1,12 +1,6 @@
 import { useEffect, useState } from "npm:preact/hooks";
 import styles from "./styles.css.ts";
 
-const title = "猫魔しろあ歌枠セットリスト";
-const description =
-  "個人VTuber 猫魔しろあの歌枠のセットリストです。曲名をクリックすると、該当楽曲を再生できます。";
-const keywords = "VTuber,個人VTuber,猫魔しろあ";
-// export { description, keywords, title };
-
 type Song = {
   archiveTime: Date;
   archiveTitle: string;
