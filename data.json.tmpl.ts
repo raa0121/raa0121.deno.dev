@@ -4,7 +4,7 @@ interface Helpers {
   [key: string]: Helper;
 }
 
-type Song = {
+type RawSong = {
   archiveTime: Date;
   archiveTitle: string;
   song: string;
@@ -13,6 +13,17 @@ type Song = {
 };
 type Response = {
   status: "ok" | "ng";
+  songs: RawSong[];
+};
+
+type Song = {
+  archiveTime: Date;
+  song: string;
+  data: string;
+  startURL: string;
+};
+export type Archive = {
+  archiveTitle: string;
   songs: Song[];
 };
 
@@ -22,4 +33,14 @@ const response = await fetch(
 const data = (await response.json()) as Response;
 const songs = data.status === "ok" ? data.songs : [];
 
-export default (_data: unknown, _helpers: Helpers) => JSON.stringify(songs);
+const archives = songs.reduce<Archive[]>((archives, song) => {
+  const archive = archives.find((a) => a.archiveTitle == song.archiveTitle);
+  if (archive) {
+    archive.songs.push(song);
+  } else {
+    archives.push({ archiveTitle: song.archiveTitle, songs: [song] });
+  }
+  return archives;
+}, []);
+
+export default (_data: unknown, _helpers: Helpers) => JSON.stringify(archives);
