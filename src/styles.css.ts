@@ -1,0 +1,1 @@
+export default {"box":"_box_wre62_1"};

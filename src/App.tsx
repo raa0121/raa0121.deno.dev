@@ -1,4 +1,5 @@
 import { useEffect, useState } from "npm:preact/hooks";
+import styles from "./styles.css.ts";
 
 const title = "猫魔しろあ歌枠セットリスト";
 const description =
@@ -31,7 +32,7 @@ const App = () => {
 
   return (
     <>
-      <div class="box">
+      <div class={styles.box}>
         <h1 class="text-4xl font-bold">猫魔しろあ歌枠セットリスト</h1>
         <h2 class="text-2xl">自動再生</h2>
         <input id="autoplay" class="toggle_input" type="checkbox" />
