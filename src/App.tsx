@@ -5,6 +5,7 @@ import styles from "./styles.css.ts";
 const App = () => {
   const [archives, setArchives] = useState<Archive[]>([]);
   const [src, setSrc] = useState<string>("");
+  const [autoplay, setAutoplay] = useState<boolean>(false);
 
   useEffect(() => {
     (async () => {
@@ -20,7 +21,12 @@ const App = () => {
         <h1 class="">猫魔しろあ歌枠セットリスト</h1>
         <div>
           <h2 class="text-2xl">自動再生</h2>
-          <input id="autoplay" class={styles.toggle_input} type="checkbox" />
+          <input
+            id="autoplay"
+            class={styles.toggle_input}
+            type="checkbox"
+            onChange={(ev) => setAutoplay(ev.currentTarget.checked)}
+          />
           <label for="autoplay" class={styles.toggle_label}></label>
         </div>
       </div>
@@ -35,7 +41,7 @@ const App = () => {
                   // FIXME: "" not allowed here
                   // allowFullScreen=""
                   frameBorder="0"
-                  src={src}
+                  src={`${src}${autoplay ? "&autoplay=1" : ""}`}
                 >
                 </iframe>
                 <button
