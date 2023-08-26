@@ -1,7 +1,17 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 960px;
+  height: 100vh;
+  margin: 0 auto;
+}
+
 .box {
   display: flex;
+  padding: 16px;
   gap: 8em;
   align-items: flex-end;
+  justify-content: space-between;
 }
 
 .flex {
@@ -68,6 +78,7 @@
 .overlay {
   position: fixed;
   top: 0;
+  left: 0;
   z-index: 10;
   width: 100vw;
   height: 100vh;
@@ -89,6 +100,6 @@
 }
 
 .scroll {
-  height: 90vh;
   overflow: auto;
+  box-shadow: inset 0px 2px 4px 0px rgba(0, 0, 0, 0.62);
 }

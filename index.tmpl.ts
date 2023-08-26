@@ -24,10 +24,6 @@ export default function (_data: unknown, { url }: Helpers) {
 
 <body>
   <section id="app">${ssr}</section>
-  <footer class="info">
-    <p>©2023+ raa0121</p>
-  </footer>
-
   <script type="module" src="${url("/main.client.js")}" bundle></script>
 </body>
 

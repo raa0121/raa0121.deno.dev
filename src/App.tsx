@@ -15,7 +15,7 @@ const App = () => {
   }, []);
 
   return (
-    <>
+    <div class={styles.container}>
       <div class={styles.box}>
         <h1 class="">猫魔しろあ歌枠セットリスト</h1>
         <div>
@@ -74,7 +74,10 @@ const App = () => {
           </div>
         ))}
       </div>
-    </>
+      <footer class="info">
+        <p>©2023+ raa0121</p>
+      </footer>
+    </div>
   );
 };
 
