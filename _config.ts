@@ -1,7 +1,26 @@
+import { Content } from "lume/core.ts";
+import Site from "lume/core/site.ts";
 import lume from "lume/mod.ts";
 import esbuild from "lume/plugins/esbuild.ts";
 import postcss from "lume/plugins/postcss.ts";
 import postcssModules from "npm:postcss-modules";
+
+const cssBundler = (options: { filename: string }) => (site: Site) => {
+  const outFile = `/${options.filename}`;
+  const moduleContents = new Map<string, Content>();
+  // TODO: Depends implicit order that passed root .css file at last.
+  site.process([".css"], (page) => {
+    // site.logger.log(`Bundling ${page.outputPath}`);
+    if (page.outputPath == outFile) {
+      page.content = [page.content, ...moduleContents.values()].join("");
+    } else if (page.outputPath) {
+      moduleContents.set(page.outputPath, page.content ?? "");
+      page.content = "";
+    } else {
+      // NOOP
+    }
+  });
+};
 
 const site = lume();
 // site.use(tailwindcss({
@@ -23,6 +42,7 @@ site.use(postcss({
     },
   })],
 }));
+site.use(cssBundler({ filename: "styles.css" }));
 site.use(esbuild({
   extensions: [".client.tsx"],
   options: {
