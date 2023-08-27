@@ -1,4 +1,4 @@
-import { useEffect, useState } from "npm:preact/hooks";
+import { useCallback, useEffect, useState } from "npm:preact/hooks";
 import { Archive } from "../data.json.tmpl.ts";
 import styles from "./styles.css.ts";
 
@@ -6,6 +6,11 @@ const App = () => {
   const [archives, setArchives] = useState<Archive[]>([]);
   const [src, setSrc] = useState<string>("");
   const [autoplay, setAutoplay] = useState<boolean>(false);
+  const overlayClose = useCallback((event) => {
+    if (event.key === 'Escape') {
+      setSrc("")
+    }
+  }, []);
 
   useEffect(() => {
     (async () => {
@@ -13,6 +18,13 @@ const App = () => {
       const data = (await res.json()) as Archive[];
       setArchives(data);
     })();
+  }, []);
+
+  useEffect(() => {
+    document.addEventListener('keydown', overlayClose, false);
+    return () => {
+      document.removeEventListener('keydown', overlayClose);
+    };
   }, []);
 
   return (
@@ -32,7 +44,13 @@ const App = () => {
       </div>
       {src !== ""
         ? (
-          <div id="overlay" class={`${styles.overlay} overlay-event`}>
+          <div
+            id="overlay"
+            class={`${styles.overlay} overlay-event`}
+            onClick={() => {
+              setSrc("");
+            }}
+          >
             <div class={styles.flex}>
               <div id="overlay-inner" class={styles["overlay-inner"]}>
                 <iframe
