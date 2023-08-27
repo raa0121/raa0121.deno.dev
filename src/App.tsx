@@ -85,7 +85,7 @@ const App = () => {
               {archive.songs.map((song) => (
                 <li class={styles.songItem}>
                   <a
-                    class="text-blue-700 overlay-event"
+                    class={`${styles["link"]} overlay-event`}
                     onClick={() => {
                       setSrc(song.startURL);
                     }}
