@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "npm:preact/hooks";
+import { useCallback, useEffect, useState } from "../deps.ts";
 import { Archive } from "../data.json.tmpl.ts";
 import styles from "./styles.css.ts";
 

@@ -1,5 +1,4 @@
-import { Helper } from "lume/core.ts";
-import { render } from "npm:preact-render-to-string";
+import { Helper, renderString as render } from "./deps.ts";
 import App from "./src/App.tsx";
 
 // const ssr = ReactDOMServer.renderToString(React.createElement(App));
