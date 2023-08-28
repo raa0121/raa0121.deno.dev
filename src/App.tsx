@@ -6,7 +6,7 @@ const App = () => {
   const [archives, setArchives] = useState<Archive[]>([]);
   const [src, setSrc] = useState<string>("");
   const [autoplay, setAutoplay] = useState<boolean>(false);
-  const overlayClose = useCallback((event) => {
+  const overlayClose = useCallback((event: KeyboardEvent) => {
     if (event.key === "Escape") {
       setSrc("");
     }
