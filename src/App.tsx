@@ -7,8 +7,8 @@ const App = () => {
   const [src, setSrc] = useState<string>("");
   const [autoplay, setAutoplay] = useState<boolean>(false);
   const overlayClose = useCallback((event) => {
-    if (event.key === 'Escape') {
-      setSrc("")
+    if (event.key === "Escape") {
+      setSrc("");
     }
   }, []);
 
@@ -21,9 +21,9 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    document.addEventListener('keydown', overlayClose, false);
+    document.addEventListener("keydown", overlayClose, false);
     return () => {
-      document.removeEventListener('keydown', overlayClose);
+      document.removeEventListener("keydown", overlayClose);
     };
   }, []);
 
