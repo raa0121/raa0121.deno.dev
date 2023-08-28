@@ -4,6 +4,7 @@ import styles from "./styles.css.ts";
 
 const App = () => {
   const [archives, setArchives] = useState<Archive[]>([]);
+  const [filter, setFilter] = useState<string>("");
   const [src, setSrc] = useState<string>("");
   const [autoplay, setAutoplay] = useState<boolean>(false);
   const overlayClose = useCallback((event: KeyboardEvent) => {
@@ -27,19 +28,46 @@ const App = () => {
     };
   }, []);
 
+  const filtered = filter.trim() == ""
+    ? archives
+    : archives.reduce<Archive[]>((filtered, archive) => {
+      const filteredSongs = archive.songs.filter((s) =>
+        s.song.indexOf(filter) != -1
+      );
+
+      if (filteredSongs.length > 0) {
+        filtered.push({
+          archiveTitle: archive.archiveTitle,
+          songs: filteredSongs,
+        });
+      }
+
+      return filtered;
+    }, []);
+
   return (
     <div class={styles.container}>
       <div class={styles.box}>
-        <h1 class="">猫魔しろあ歌枠セットリスト</h1>
         <div>
-          <h2 class="text-2xl">自動再生</h2>
+          <h1 class={styles.title}>猫魔しろあ歌枠セットリスト</h1>
+          <div class={styles["autoplay-container"]}>
+            <h2 class={styles["autoplay-label"]}>自動再生</h2>
+            <input
+              id="autoplay"
+              class={styles.toggle_input}
+              type="checkbox"
+              onChange={(ev) => setAutoplay(ev.currentTarget.checked)}
+            />
+            <label for="autoplay" class={styles.toggle_label}></label>
+          </div>
+        </div>
+        <div class={styles["isearch-container"]}>
+          <label for="isearch" class={styles["isearch-label"]}>検索</label>
           <input
-            id="autoplay"
-            class={styles.toggle_input}
-            type="checkbox"
-            onChange={(ev) => setAutoplay(ev.currentTarget.checked)}
+            id="isearch"
+            type="text"
+            onInput={(ev) => setFilter(ev.currentTarget.value)}
           />
-          <label for="autoplay" class={styles.toggle_label}></label>
         </div>
       </div>
       {src !== ""
@@ -78,7 +106,7 @@ const App = () => {
         )
         : null}
       <div class={`p-10 ${styles.scroll}`}>
-        {archives.map((archive) => (
+        {filtered.map((archive) => (
           <div class="grid grid-cols-2">
             <p>{archive.archiveTitle}</p>
             <ul>
