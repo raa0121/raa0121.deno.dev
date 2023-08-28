@@ -1,5 +1,5 @@
-import { useCallback, useEffect, useRef, useState } from "../deps.ts";
 import { Archive } from "../data.json.tmpl.ts";
+import { useCallback, useEffect, useRef, useState } from "../deps.ts";
 import styles from "./styles.css.ts";
 
 const App = () => {
