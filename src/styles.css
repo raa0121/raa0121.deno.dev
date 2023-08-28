@@ -101,7 +101,9 @@
 
 .scroll {
   overflow: auto;
-  box-shadow: inset 0px 2px 4px 0px rgba(0, 0, 0, 0.62);
+  padding: 8px;
+  border-radius: 8px;
+  box-shadow: inset 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
 }
 
 .link {
