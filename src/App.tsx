@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "../deps.ts";
+import { useCallback, useEffect, useRef, useState } from "../deps.ts";
 import { Archive } from "../data.json.tmpl.ts";
 import styles from "./styles.css.ts";
 
@@ -7,9 +7,24 @@ const App = () => {
   const [filter, setFilter] = useState<string>("");
   const [src, setSrc] = useState<string>("");
   const [autoplay, setAutoplay] = useState<boolean>(false);
+  const searchRef = useRef<HTMLInputElement>(null);
   const overlayClose = useCallback((event: KeyboardEvent) => {
     if (event.key === "Escape") {
       setSrc("");
+    }
+  }, []);
+  const focusFilter = useCallback((ev: KeyboardEvent) => {
+    if (
+      ev.key === "/" && searchRef.current &&
+      document.activeElement != searchRef.current
+    ) {
+      ev.preventDefault();
+      searchRef.current.focus();
+    }
+  }, []);
+  const clearFilter = useCallback((ev: KeyboardEvent) => {
+    if (ev.key === "Escape") {
+      setFilter("");
     }
   }, []);
 
@@ -23,10 +38,17 @@ const App = () => {
 
   useEffect(() => {
     document.addEventListener("keydown", overlayClose, false);
+    document.addEventListener("keydown", focusFilter);
     return () => {
       document.removeEventListener("keydown", overlayClose);
+      document.removeEventListener("keydown", focusFilter);
     };
   }, []);
+
+  useEffect(() => {
+    document.addEventListener("keydown", clearFilter);
+    return () => document.removeEventListener("keydown", clearFilter);
+  }, [searchRef]);
 
   const filtered = filter.trim() == ""
     ? archives
@@ -64,7 +86,9 @@ const App = () => {
             <label for="isearch" class={styles["isearch-label"]}>検索</label>
             <input
               id="isearch"
+              ref={searchRef}
               type="text"
+              value={filter}
               onInput={(ev) => setFilter(ev.currentTarget.value)}
             />
           </div>
