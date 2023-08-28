@@ -1,1 +1,20 @@
-export default {"container":"_container_d856a_1","box":"_box_d856a_9","flex":"_flex_d856a_17","songItem":"_songItem_d856a_25","toggle_input":"_toggle_input_d856a_29","toggle_label":"_toggle_label_d856a_36","close-btn":"_close-btn_d856a_69","overlay":"_overlay_d856a_78","overlay-iframe":"_overlay-iframe_d856a_91","overlay-inner":"_overlay-inner_d856a_96","scroll":"_scroll_d856a_102","link":"_link_d856a_107"};
+export default {
+  "container": "_container_16tfq_1",
+  "box": "_box_16tfq_9",
+  "flex": "_flex_16tfq_16",
+  "songItem": "_songItem_16tfq_24",
+  "title": "_title_16tfq_28",
+  "autoplay-container": "_autoplay-container_16tfq_33",
+  "autoplay-label": "_autoplay-label_16tfq_40",
+  "toggle_input": "_toggle_input_16tfq_45",
+  "toggle_label": "_toggle_label_16tfq_52",
+  "isearch-container": "_isearch-container_16tfq_85",
+  "isearch-label": "_isearch-label_16tfq_89",
+  "close-btn": "_close-btn_16tfq_93",
+  "overlay": "_overlay_16tfq_102",
+  "overlay-iframe": "_overlay-iframe_16tfq_115",
+  "overlay-inner": "_overlay-inner_16tfq_120",
+  "scroll-border": "_scroll-border_16tfq_126",
+  "scroll": "_scroll_16tfq_126",
+  "link": "_link_16tfq_135",
+};

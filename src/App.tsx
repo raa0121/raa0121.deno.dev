@@ -1,14 +1,30 @@
-import { useCallback, useEffect, useState } from "npm:preact/hooks";
 import { Archive } from "../data.json.tmpl.ts";
+import { useCallback, useEffect, useRef, useState } from "../deps.ts";
 import styles from "./styles.css.ts";
 
 const App = () => {
   const [archives, setArchives] = useState<Archive[]>([]);
+  const [filter, setFilter] = useState<string>("");
   const [src, setSrc] = useState<string>("");
   const [autoplay, setAutoplay] = useState<boolean>(false);
-  const overlayClose = useCallback((event) => {
-    if (event.key === 'Escape') {
-      setSrc("")
+  const searchRef = useRef<HTMLInputElement>(null);
+  const overlayClose = useCallback((event: KeyboardEvent) => {
+    if (event.key === "Escape") {
+      setSrc("");
+    }
+  }, []);
+  const focusFilter = useCallback((ev: KeyboardEvent) => {
+    if (
+      ev.key === "/" && searchRef.current &&
+      document.activeElement != searchRef.current
+    ) {
+      ev.preventDefault();
+      searchRef.current.focus();
+    }
+  }, []);
+  const clearFilter = useCallback((ev: KeyboardEvent) => {
+    if (ev.key === "Escape") {
+      setFilter("");
     }
   }, []);
 
@@ -21,25 +37,61 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    document.addEventListener('keydown', overlayClose, false);
+    document.addEventListener("keydown", overlayClose, false);
+    document.addEventListener("keydown", focusFilter);
     return () => {
-      document.removeEventListener('keydown', overlayClose);
+      document.removeEventListener("keydown", overlayClose);
+      document.removeEventListener("keydown", focusFilter);
     };
   }, []);
+
+  useEffect(() => {
+    document.addEventListener("keydown", clearFilter);
+    return () => document.removeEventListener("keydown", clearFilter);
+  }, [searchRef]);
+
+  const filtered = filter.trim() == ""
+    ? archives
+    : archives.reduce<Archive[]>((filtered, archive) => {
+      const filteredSongs = archive.songs.filter((s) =>
+        s.song.indexOf(filter) != -1
+      );
+
+      if (filteredSongs.length > 0) {
+        filtered.push({
+          archiveTitle: archive.archiveTitle,
+          songs: filteredSongs,
+        });
+      }
+
+      return filtered;
+    }, []);
 
   return (
     <div class={styles.container}>
       <div class={styles.box}>
-        <h1 class="">猫魔しろあ歌枠セットリスト</h1>
+        <h1 class={styles.title}>猫魔しろあ歌枠セットリスト</h1>
         <div>
-          <h2 class="text-2xl">自動再生</h2>
-          <input
-            id="autoplay"
-            class={styles.toggle_input}
-            type="checkbox"
-            onChange={(ev) => setAutoplay(ev.currentTarget.checked)}
-          />
-          <label for="autoplay" class={styles.toggle_label}></label>
+          <div class={styles["autoplay-container"]}>
+            <h2 class={styles["autoplay-label"]}>自動再生</h2>
+            <input
+              id="autoplay"
+              class={styles.toggle_input}
+              type="checkbox"
+              onChange={(ev) => setAutoplay(ev.currentTarget.checked)}
+            />
+            <label for="autoplay" class={styles.toggle_label}></label>
+          </div>
+          <div class={styles["isearch-container"]}>
+            <label for="isearch" class={styles["isearch-label"]}>検索</label>
+            <input
+              id="isearch"
+              ref={searchRef}
+              type="text"
+              value={filter}
+              onInput={(ev) => setFilter(ev.currentTarget.value)}
+            />
+          </div>
         </div>
       </div>
       {src !== ""
@@ -78,7 +130,7 @@ const App = () => {
         )
         : null}
       <div class={`p-10 ${styles.scroll}`}>
-        {archives.map((archive) => (
+        {filtered.map((archive) => (
           <div class="grid grid-cols-2">
             <p>{archive.archiveTitle}</p>
             <ul>

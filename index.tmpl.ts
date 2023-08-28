@@ -1,5 +1,4 @@
-import { Helper } from "lume/core.ts";
-import { render } from "npm:preact-render-to-string";
+import { Helper, renderString as render } from "./deps.ts";
 import App from "./src/App.tsx";
 
 // const ssr = ReactDOMServer.renderToString(React.createElement(App));
@@ -11,7 +10,8 @@ interface Helpers {
 
 export default function (_data: unknown, { url }: Helpers) {
   const title = "猫魔しろあ歌枠セットリスト";
-  const description = "個人VTuber 猫魔しろあの歌枠のセットリストです。曲名をクリックすると、該当楽曲を再生できます。";
+  const description =
+    "個人VTuber 猫魔しろあの歌枠のセットリストです。曲名をクリックすると、該当楽曲を再生できます。";
   return `<!doctype html>
 <html lang="en">
 

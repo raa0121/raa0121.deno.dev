@@ -8,9 +8,8 @@
 
 .box {
   display: flex;
-  padding: 16px;
-  gap: 8em;
-  align-items: flex-end;
+  padding: 16px 0;
+  gap: 16px;
   justify-content: space-between;
 }
 
@@ -24,6 +23,23 @@
 
 .songItem {
   list-style: none;
+}
+
+.title {
+  font-size: 1.8em;
+  margin: 12px 0;
+}
+
+.autoplay-container {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 16px;
+}
+
+.autoplay-label {
+  margin: 8px 0;
+  font-size: 1.2rem;
 }
 
 .toggle_input {
@@ -66,6 +82,14 @@
   transition: 0.4s;
 }
 
+.isearch-container {
+  margin: 8px 4px;
+}
+
+.isearch-label {
+  margin: 0 8px;
+}
+
 .close-btn {
   display: block;
   margin: 20px auto;
@@ -101,7 +125,9 @@
 
 .scroll {
   overflow: auto;
-  box-shadow: inset 0px 2px 4px 0px rgba(0, 0, 0, 0.62);
+  padding: 8px;
+  border-radius: 8px;
+  box-shadow: inset 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
 }
 
 .link {
@@ -110,5 +136,5 @@
 
 .link:hover {
   text-decoration: underline;
-  cursor : pointer;
+  cursor: pointer;
 }

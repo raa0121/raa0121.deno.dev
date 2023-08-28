@@ -1,4 +1,4 @@
-import { hydrate, render } from "npm:preact";
+import { hydrate, render } from "./deps.ts";
 import App from "./src/App.tsx";
 
 if (document.getElementById("lume-live-reload")) {

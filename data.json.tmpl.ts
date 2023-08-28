@@ -1,4 +1,4 @@
-import { Helper } from "lume/core.ts";
+import { Helper } from "./deps.ts";
 
 interface Helpers {
   [key: string]: Helper;

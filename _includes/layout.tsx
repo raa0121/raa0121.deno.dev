@@ -1,8 +1,8 @@
 import { ComponentChildren } from "preact";
 
 interface PageProps {
-  children: ComponentChildren
-  title: string
+  children: ComponentChildren;
+  title: string;
 }
 
 import Header from "./header.tsx";
@@ -20,7 +20,10 @@ export default (props: PageProps) => (
       <meta property="og:url" content="" />
       <meta property="og:title" content={props.title} />
       <meta property="og:description" content={props.description} />
-      <meta property="og:image" content="https://raa0121.deno.dev/static/raa0121.png" />
+      <meta
+        property="og:image"
+        content="https://raa0121.deno.dev/static/raa0121.png"
+      />
       <title>{props.title}</title>
       <link href="/styles.css" rel="stylesheet" type="text/css" />
       <script src="/static/overlay.js"></script>
