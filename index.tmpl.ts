@@ -24,8 +24,8 @@ export default function (_data: unknown, { url }: Helpers) {
   <meta name="twitter:site" content="@raa0121" />
   <meta name="twitter:creator" content="@raa0121" />
   <meta property="og:url" content="https://raa0121.deno.dev" />
-  <meta property="og:title" content={props.title} />
-  <meta property="og:description" content="{props.description}" />
+  <meta property="og:title" content="${title}" />
+  <meta property="og:description" content="${description}" />
   <meta property="og:image" content="https://raa0121.deno.dev/static/raa0121.png" />
   <meta name="keywords" content="VTuber,個人VTuber,猫魔しろあ" />
   <title>${title}</title>
