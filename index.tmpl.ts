@@ -12,9 +12,9 @@ export default function (_data: unknown, { url }: Helpers) {
   const title = "猫魔しろあ歌枠セットリスト";
   const description =
     "個人VTuber 猫魔しろあの歌枠のセットリストです。曲名をクリックすると、該当楽曲を再生できます。";
-  const enviroment = env.get("ENVIROMENT", "production");
+  const environment = env.get("ENVIRONMENT", "production");
   let baseUrl = "";
-  if ("production" === enviroment) {
+  if ("production" === environment) {
     baseUrl = "https://raa0121.deno.dev";
   } else {
     baseUrl = "http://localhost:3000";
