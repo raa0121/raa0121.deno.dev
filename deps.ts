@@ -7,3 +7,6 @@ export {
   useState,
 } from "npm:preact@10.16.0/hooks";
 export { render as renderString } from "npm:preact-render-to-string@6.2.0";
+import { Env } from "https://deno.land/x/env@v2.2.0/env.js";
+const env = new Env();
+export { env }

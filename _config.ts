@@ -23,9 +23,6 @@ const cssBundler = (options: { filename: string }) => (site: Site) => {
 };
 
 const site = lume();
-// site.use(tailwindcss({
-//   extensions: [".html", ".jsx"],
-// }));
 site.use(postcss({
   plugins: [postcssModules({
     getJSON: async (cssFilename, json, _outputFilename) => {
