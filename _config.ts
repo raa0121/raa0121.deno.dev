@@ -1,9 +1,11 @@
 import { Content } from "lume/core.ts";
 import Site from "lume/core/site.ts";
 import lume from "lume/mod.ts";
+import basePath from "lume/plugins/base_path.ts";
 import esbuild from "lume/plugins/esbuild.ts";
 import postcss from "lume/plugins/postcss.ts";
 import postcssModules from "npm:postcss-modules";
+import { env } from "./deps.ts";
 
 const cssBundler = (options: { filename: string }) => (site: Site) => {
   const outFile = `/${options.filename}`;
@@ -22,7 +24,16 @@ const cssBundler = (options: { filename: string }) => (site: Site) => {
   });
 };
 
-const site = lume();
+const environment = env.get("ENVIRONMENT", "production");
+let baseUrl = "";
+if ("production" === environment) {
+  baseUrl = "https://raa0121.deno.dev";
+} else {
+  baseUrl = "http://localhost:3000";
+}
+const site = lume({
+  location: new URL(baseUrl),
+});
 site.use(postcss({
   plugins: [postcssModules({
     getJSON: async (cssFilename, json, _outputFilename) => {
