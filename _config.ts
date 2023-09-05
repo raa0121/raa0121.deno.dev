@@ -34,6 +34,7 @@ if ("production" === environment) {
 const site = lume({
   location: new URL(baseUrl),
 });
+site.use(basePath());
 site.use(postcss({
   plugins: [postcssModules({
     getJSON: async (cssFilename, json, _outputFilename) => {
