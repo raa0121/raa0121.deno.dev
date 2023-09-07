@@ -2,8 +2,8 @@
   "importMap": "import_map.json",
   "tasks": {
     "lume": "echo \"import 'lume/cli.ts'\" | deno run --unstable -A -",
-    "build": "deno task lume",
-    "serve": "ENVIRONMENT=development deno task lume -s"
+    "build": "deno task lume && deno fmt",
+    "serve": "deno task lume -s"
   },
   "compilerOptions": {
     "jsx": "react-jsx",

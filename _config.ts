@@ -29,7 +29,7 @@ site.use(postcss({
   plugins: [postcssModules({
     getJSON: async (cssFilename, json, _outputFilename) => {
       const tsFilename = `${cssFilename}.ts`;
-      const tsObjectString = `export default ${JSON.stringify(json)};`;
+      const tsObjectString = `export default ${JSON.stringify(json)};\n`;
 
       // Prevent incremental build loop
       if (await Deno.readTextFile(tsFilename) === tsObjectString) return;
