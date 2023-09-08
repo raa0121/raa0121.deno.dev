@@ -2,6 +2,7 @@ import { Archive } from "../data.json.tmpl.ts";
 import { useCallback, useEffect, useRef, useState } from "../deps.ts";
 import AutoplaySwitch from "./AutoplaySwitch/index.tsx";
 import PlayerOverlay from "./PlayerOverlay/index.tsx";
+import SongItem from "./SongItem/index.tsx";
 import styles from "./styles.css.ts";
 
 const App = () => {
@@ -102,16 +103,10 @@ const App = () => {
             <p>{archive.archiveTitle}</p>
             <ul>
               {archive.songs.map((song) => (
-                <li class={styles.songItem}>
-                  <a
-                    class={`${styles["link"]} overlay-event`}
-                    onClick={() => {
-                      setSrc(song.startURL);
-                    }}
-                  >
-                    {song.song}
-                  </a>
-                </li>
+                <SongItem
+                  song={song}
+                  onClick={() => setSrc(song.startURL)}
+                />
               ))}
             </ul>
           </div>

@@ -1,0 +1,12 @@
+.songItem {
+  list-style: none;
+}
+
+.link {
+  color: rgb(29 78 216);
+}
+
+.link:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}

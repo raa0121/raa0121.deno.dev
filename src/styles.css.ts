@@ -1,11 +1,9 @@
 export default {
-  "container": "_container_1f4ec_1",
-  "box": "_box_1f4ec_9",
-  "songItem": "_songItem_1f4ec_16",
-  "title": "_title_1f4ec_20",
-  "isearch-container": "_isearch-container_1f4ec_25",
-  "isearch-label": "_isearch-label_1f4ec_29",
-  "scroll": "_scroll_1f4ec_33",
-  "fadein": "_fadein_1f4ec_1",
-  "link": "_link_1f4ec_52",
+  "container": "_container_14nv3_1",
+  "box": "_box_14nv3_9",
+  "title": "_title_14nv3_16",
+  "isearch-container": "_isearch-container_14nv3_21",
+  "isearch-label": "_isearch-label_14nv3_25",
+  "scroll": "_scroll_14nv3_29",
+  "fadein": "_fadein_14nv3_1",
 };

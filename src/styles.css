@@ -13,10 +13,6 @@
   justify-content: space-between;
 }
 
-.songItem {
-  list-style: none;
-}
-
 .title {
   font-size: 1.8em;
   margin: 12px 0;
@@ -47,13 +43,4 @@
   100% {
     opacity: 1
   }
-}
-
-.link {
-  color: rgb(29 78 216);
-}
-
-.link:hover {
-  text-decoration: underline;
-  cursor: pointer;
 }

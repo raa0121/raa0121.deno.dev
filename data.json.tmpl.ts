@@ -16,7 +16,7 @@ type Response = {
   songs: RawSong[];
 };
 
-type Song = {
+export type Song = {
   archiveTime: Date;
   song: string;
   data: string;
