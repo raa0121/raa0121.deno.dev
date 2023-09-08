@@ -1,5 +1,6 @@
 import { Archive } from "../data.json.tmpl.ts";
 import { useCallback, useEffect, useRef, useState } from "../deps.ts";
+import AutoplaySwitch from "./AutoplaySwitch/index.tsx";
 import PlayerOverlay from "./PlayerOverlay/index.tsx";
 import styles from "./styles.css.ts";
 
@@ -73,16 +74,7 @@ const App = () => {
       <div class={styles.box}>
         <h1 class={styles.title}>猫魔しろあ歌枠セットリスト</h1>
         <div>
-          <div class={styles["autoplay-container"]}>
-            <h2 class={styles["autoplay-label"]}>自動再生</h2>
-            <input
-              id="autoplay"
-              class={styles.toggle_input}
-              type="checkbox"
-              onChange={(ev) => setAutoplay(ev.currentTarget.checked)}
-            />
-            <label for="autoplay" class={styles.toggle_label}></label>
-          </div>
+          <AutoplaySwitch onChange={setAutoplay} />
           <div class={styles["isearch-container"]}>
             <label for="isearch" class={styles["isearch-label"]}>検索</label>
             <input
