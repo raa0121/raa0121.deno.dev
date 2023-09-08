@@ -1,5 +1,6 @@
 import { Archive } from "../data.json.tmpl.ts";
 import { useCallback, useEffect, useRef, useState } from "../deps.ts";
+import PlayerOverlay from "./PlayerOverlay/index.tsx";
 import styles from "./styles.css.ts";
 
 const App = () => {
@@ -96,37 +97,11 @@ const App = () => {
       </div>
       {src !== ""
         ? (
-          <div
-            id="overlay"
-            class={`${styles.overlay} overlay-event`}
-            onClick={() => {
-              setSrc("");
-            }}
-          >
-            <div class={styles.flex}>
-              <div id="overlay-inner" class={styles["overlay-inner"]}>
-                <iframe
-                  id="embed"
-                  class={styles["overlay-iframe"]}
-                  // FIXME: "" not allowed here
-                  // allowFullScreen=""
-                  frameBorder="0"
-                  src={`${src}${autoplay ? "&autoplay=1" : ""}`}
-                >
-                </iframe>
-                <button
-                  id="close-btn"
-                  class={`${styles["close-btn"]} overlay-event`}
-                  type="button"
-                  onClick={() => {
-                    setSrc("");
-                  }}
-                >
-                  Close
-                </button>
-              </div>
-            </div>
-          </div>
+          <PlayerOverlay
+            autoplay={autoplay}
+            src={src}
+            onClose={() => setSrc("")}
+          />
         )
         : null}
       <div class={`p-10 ${styles.scroll}`}>
