@@ -1,3 +1,8 @@
+// @deno-types="./node_modules/@types/react/index.d.ts"
+import Overlay from "./overlay.tsx";
+import Song from "./song.tsx";
+import Autoplay from "./autoplay.tsx";
+import AutoplayProvider from "./autoplayContext.tsx";
 import { Archive } from "../data.json.tmpl.ts";
 import { useCallback, useEffect, useRef, useState } from "../deps.ts";
 import styles from "./styles.css.ts";
@@ -6,7 +11,6 @@ const App = () => {
   const [archives, setArchives] = useState<Archive[]>([]);
   const [filter, setFilter] = useState<string>("");
   const [src, setSrc] = useState<string>("");
-  const [autoplay, setAutoplay] = useState<boolean>(false);
   const searchRef = useRef<HTMLInputElement>(null);
   const overlayClose = useCallback((event: KeyboardEvent) => {
     if (event.key === "Escape") {
@@ -68,91 +72,48 @@ const App = () => {
     }, []);
 
   return (
-    <div class={styles.container}>
-      <div class={styles.box}>
-        <h1 class={styles.title}>猫魔しろあ歌枠セットリスト</h1>
-        <div>
-          <div class={styles["autoplay-container"]}>
-            <h2 class={styles["autoplay-label"]}>自動再生</h2>
-            <input
-              id="autoplay"
-              class={styles.toggle_input}
-              type="checkbox"
-              onChange={(ev) => setAutoplay(ev.currentTarget.checked)}
-            />
-            <label for="autoplay" class={styles.toggle_label}></label>
-          </div>
-          <div class={styles["isearch-container"]}>
-            <label for="isearch" class={styles["isearch-label"]}>検索</label>
-            <input
-              id="isearch"
-              ref={searchRef}
-              type="text"
-              value={filter}
-              onInput={(ev) => setFilter(ev.currentTarget.value)}
-            />
-          </div>
-        </div>
-      </div>
-      {src !== ""
-        ? (
-          <div
-            id="overlay"
-            class={`${styles.overlay} overlay-event`}
-            onClick={() => {
-              setSrc("");
-            }}
-          >
-            <div class={styles.flex}>
-              <div id="overlay-inner" class={styles["overlay-inner"]}>
-                <iframe
-                  id="embed"
-                  class={styles["overlay-iframe"]}
-                  // FIXME: "" not allowed here
-                  // allowFullScreen=""
-                  frameBorder="0"
-                  src={`${src}${autoplay ? "&autoplay=1" : ""}`}
-                >
-                </iframe>
-                <button
-                  id="close-btn"
-                  class={`${styles["close-btn"]} overlay-event`}
-                  type="button"
-                  onClick={() => {
-                    setSrc("");
-                  }}
-                >
-                  Close
-                </button>
-              </div>
+    <div className={styles.container}>
+      <AutoplayProvider>
+        <div className={styles.box}>
+          <h1 className={styles.title}>猫魔しろあ歌枠セットリスト</h1>
+          <div>
+            <Autoplay />
+            <div className={styles["isearch-container"]}>
+              <label for="isearch" className={styles["isearch-label"]}>
+                検索
+              </label>
+              <input
+                id="isearch"
+                ref={searchRef}
+                type="text"
+                value={filter}
+                onInput={(ev) => setFilter(ev.currentTarget.value)}
+              />
             </div>
           </div>
-        )
-        : null}
-      <div class={`p-10 ${styles.scroll}`}>
-        {filtered.map((archive) => (
-          <div class="grid grid-cols-2">
-            <p>{archive.archiveTitle}</p>
-            <ul>
-              {archive.songs.map((song) => (
-                <li class={styles.songItem}>
-                  <a
-                    class={`${styles["link"]} overlay-event`}
-                    onClick={() => {
-                      setSrc(song.startURL);
-                    }}
-                  >
-                    {song.song}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
-      <footer class="info">
-        <p>©2023+ raa0121</p>
-      </footer>
+        </div>
+        {src !== ""
+          ? (
+            <Overlay
+              src={src}
+              setSrc={setSrc}
+            />
+          )
+          : null}
+        <div className={`p-10 ${styles.scroll}`}>
+          {filtered.map((archive) => (
+            <div className="grid grid-cols-2">
+              <Song
+                archive={archive}
+                setSrc={setSrc}
+              />
+            </div>
+          ))}
+        </div>
+        <footer className="info">
+          <p>©2023+ raa0121</p>
+        </footer>
+      </AutoplayProvider>
     </div>
   );
 };
