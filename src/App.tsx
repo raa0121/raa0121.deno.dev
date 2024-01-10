@@ -1,5 +1,8 @@
 import { Archive } from "../data.json.tmpl.ts";
 import { useCallback, useEffect, useRef, useState } from "../deps.ts";
+import AutoplaySwitch from "./AutoplaySwitch/index.tsx";
+import PlayerOverlay from "./PlayerOverlay/index.tsx";
+import SongItem from "./SongItem/index.tsx";
 import styles from "./styles.css.ts";
 
 const App = () => {
@@ -72,16 +75,7 @@ const App = () => {
       <div class={styles.box}>
         <h1 class={styles.title}>猫魔しろあ歌枠セットリスト</h1>
         <div>
-          <div class={styles["autoplay-container"]}>
-            <h2 class={styles["autoplay-label"]}>自動再生</h2>
-            <input
-              id="autoplay"
-              class={styles.toggle_input}
-              type="checkbox"
-              onChange={(ev) => setAutoplay(ev.currentTarget.checked)}
-            />
-            <label for="autoplay" class={styles.toggle_label}></label>
-          </div>
+          <AutoplaySwitch onChange={setAutoplay} />
           <div class={styles["isearch-container"]}>
             <label for="isearch" class={styles["isearch-label"]}>検索</label>
             <input
@@ -96,37 +90,11 @@ const App = () => {
       </div>
       {src !== ""
         ? (
-          <div
-            id="overlay"
-            class={`${styles.overlay} overlay-event`}
-            onClick={() => {
-              setSrc("");
-            }}
-          >
-            <div class={styles.flex}>
-              <div id="overlay-inner" class={styles["overlay-inner"]}>
-                <iframe
-                  id="embed"
-                  class={styles["overlay-iframe"]}
-                  // FIXME: "" not allowed here
-                  // allowFullScreen=""
-                  frameBorder="0"
-                  src={`${src}${autoplay ? "&autoplay=1" : ""}`}
-                >
-                </iframe>
-                <button
-                  id="close-btn"
-                  class={`${styles["close-btn"]} overlay-event`}
-                  type="button"
-                  onClick={() => {
-                    setSrc("");
-                  }}
-                >
-                  Close
-                </button>
-              </div>
-            </div>
-          </div>
+          <PlayerOverlay
+            autoplay={autoplay}
+            src={src}
+            onClose={() => setSrc("")}
+          />
         )
         : null}
       <div class={`p-10 ${styles.scroll}`}>
@@ -135,16 +103,10 @@ const App = () => {
             <p>{archive.archiveTitle}</p>
             <ul>
               {archive.songs.map((song) => (
-                <li class={styles.songItem}>
-                  <a
-                    class={`${styles["link"]} overlay-event`}
-                    onClick={() => {
-                      setSrc(song.startURL);
-                    }}
-                  >
-                    {song.song}
-                  </a>
-                </li>
+                <SongItem
+                  song={song}
+                  onClick={() => setSrc(song.startURL)}
+                />
               ))}
             </ul>
           </div>

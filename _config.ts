@@ -31,8 +31,16 @@ site.use(postcss({
       const tsFilename = `${cssFilename}.ts`;
       const tsObjectString = `export default ${JSON.stringify(json)};\n`;
 
-      // Prevent incremental build loop
-      if (await Deno.readTextFile(tsFilename) === tsObjectString) return;
+      try {
+        // Prevent incremental build loop
+        if (await Deno.readTextFile(tsFilename) === tsObjectString) return;
+      } catch (err) {
+        if (err instanceof Deno.errors.NotFound) {
+          // NOOP
+        } else {
+          throw err;
+        }
+      }
 
       await Deno.writeTextFile(
         tsFilename,
