@@ -1,4 +1,4 @@
-import { Content } from "lume/core.ts";
+import { type Content } from "lume/core/file.ts";
 import Site from "lume/core/site.ts";
 import lume from "lume/mod.ts";
 import esbuild from "lume/plugins/esbuild.ts";
@@ -9,16 +9,17 @@ const cssBundler = (options: { filename: string }) => (site: Site) => {
   const outFile = `/${options.filename}`;
   const moduleContents = new Map<string, Content>();
   // TODO: Depends implicit order that passed root .css file at last.
-  site.process([".css"], (page) => {
-    // site.logger.log(`Bundling ${page.outputPath}`);
-    if (page.outputPath == outFile) {
-      page.content = [page.content, ...moduleContents.values()].join("");
-    } else if (page.outputPath) {
-      moduleContents.set(page.outputPath, page.content ?? "");
-      page.content = "";
-    } else {
-      // NOOP
-    }
+  site.process([".css"], (pages) => {
+    pages.forEach((page) => {
+      if (page.data.url == outFile) {
+        page.content = [page.content, ...moduleContents.values()].join("");
+      } else if (page.data.url) {
+        moduleContents.set(page.outputPath, page.content ?? "");
+        page.content = "";
+      } else {
+        // NOOP
+      }
+    });
   });
 };
 
