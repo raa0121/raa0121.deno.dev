@@ -1,16 +1,53 @@
 .container {
-  display: flex;
-  flex-direction: column;
-  max-width: 960px;
-  height: 100vh;
-  margin: 0 auto;
 }
 
 .box {
+  position: fixed;
+  width: 100%;
+  padding: 5px 0;
+  top: 0;
+  left: 0;
   display: flex;
-  padding: 16px 0;
-  gap: 16px;
-  justify-content: space-between;
+  align-items: center;
+  background: #FFF;
+  border-bottom: 2px solid #F9C;
+}
+
+.box div {
+  display: flex;
+  align-items: center;
+}
+
+.box > div {
+  flex-direction: row-reverse;
+}
+
+.box div div {
+  margin: 0 0 0 15px;
+}
+
+.box h2 {
+  margin: 0 0.5em 0 0;
+  font-size: 1em;
+}
+
+.box label {
+  margin: 0 0.5em 0 0;
+}
+
+
+h1 {
+  margin: 0 0 0 15px;
+}
+
+h1:before {
+  content: "";
+  display: inline-block;
+  width: 2em;
+  height: 1em;
+  margin: 0 0.1em 0 0;
+  background: url("./static/icon.png") no-repeat bottom;
+  background-size: contain;
 }
 
 .flex {
@@ -54,12 +91,12 @@
 }
 
 .toggle_input:checked+.toggle_label:after {
-  left: 40px;
+  left: 30px;
 }
 
 .toggle_label {
-  width: 75px;
-  height: 35px;
+  width: 55px;
+  height: 25px;
   background: #ccc;
   position: relative;
   display: inline-block;
@@ -71,14 +108,14 @@
 .toggle_label:after {
   content: "";
   position: absolute;
-  width: 35px;
-  height: 35px;
+  width: 25px;
+  height: 25px;
   border-radius: 100%;
   left: 0;
   top: 0;
   z-index: 2;
   background: #fff;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
   transition: 0.4s;
 }
 
@@ -124,12 +161,45 @@
 }
 
 .scroll {
-  flex-grow: 1;
-  overflow: auto;
-  padding: 8px;
-  border-radius: 8px;
-  box-shadow: inset 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
-  animation: fadein .2s ease-in forwards;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 85px 0 30px;
+}
+
+.scroll > div {
+  width: 320px;
+  margin: 0 0 15px 15px;
+  padding: 0 15px;
+  border: 1px solid #CCC;
+}
+
+.scroll p  {
+  margin: 1em 0;
+}
+
+.scroll ul {
+  margin: 0.5em 0;
+  padding: 0;
+  list-style: none;
+}
+
+.scroll li {
+  margin: 0.2em;
+  line-height:1.2em;
+}
+
+.scroll a {
+  display: block;
+  padding: 0.3em 0.5em 0.2em;
+  border-radius: 1em;
+  background: #FCE;
+  color: #36E;
+}
+
+.scroll a:hover {
+  background: #F9C;
+  color: #FFF;
+  cursor: pointer;
 }
 
 @keyframes fadein {
@@ -149,4 +219,18 @@
 .link:hover {
   text-decoration: underline;
   cursor: pointer;
+}
+
+footer {
+  position: fixed;
+  width: 100%;
+  padding: 5px 0;
+  bottom: 0;
+  left: 0;
+  background: #FFF;
+  border-top: 2px solid #F9C;
+  font-size: 80%;
+}
+footer p {
+  margin: 0 15px;
 }

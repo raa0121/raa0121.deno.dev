@@ -44,3 +44,4 @@ const archives = songs.reduce<Archive[]>((archives, song) => {
 }, []);
 
 export default (_data: unknown, _helpers: Helpers) => JSON.stringify(archives);
+export const url = (page) => `/${page.data.basename}`;
