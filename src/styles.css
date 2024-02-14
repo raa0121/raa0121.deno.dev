@@ -2,7 +2,7 @@
 }
 
 .box {
-  position: fixed;
+  position: sticky;
   width: 100%;
   padding: 5px 0;
   top: 0;
@@ -163,7 +163,7 @@ h1:before {
 .scroll {
   display: flex;
   flex-wrap: wrap;
-  margin: 85px 0 30px;
+  margin: 5px 0 30px;
 }
 
 .scroll > div {
