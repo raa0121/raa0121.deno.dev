@@ -40,6 +40,9 @@
     display: flex;
     flex-flow: column;
   }
+  .title {
+    font-size: 1.6em;
+  }
 }
 
 
@@ -72,6 +75,11 @@ h1:before {
 .title {
   font-size: 1.8em;
   margin: 12px 0;
+}
+@media screen and (max-width:840px) {
+  .title {
+    font-size: 1.6em;
+  }
 }
 
 .autoplay-container {
