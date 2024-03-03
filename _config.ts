@@ -54,6 +54,7 @@ site.use(esbuild({
   },
 }));
 site.copy("static");
+site.copy("favicon.ico");
 site.ignore("README.md");
 // site.ignore("src");
 
