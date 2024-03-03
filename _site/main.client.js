@@ -1360,27 +1360,27 @@ function kn(e, n) {
 }
 f(kn, "U");
 var U = {
-  container: "_container_12168_1",
-  box: "_box_12168_4",
-  flex: "_flex_12168_53",
-  songItem: "_songItem_12168_61",
-  title: "_title_12168_65",
-  "autoplay-container": "_autoplay-container_12168_70",
-  "autoplay-label": "_autoplay-label_12168_77",
-  toggle_input: "_toggle_input_12168_82",
-  toggle_label: "_toggle_label_12168_89",
-  "isearch-container": "_isearch-container_12168_122",
-  "isearch-label": "_isearch-label_12168_126",
-  "close-btn": "_close-btn_12168_130",
-  overlay: "_overlay_12168_139",
-  "overlay-iframe": "_overlay-iframe_12168_152",
-  "overlay-inner": "_overlay-inner_12168_157",
-  scroll: "_scroll_12168_163",
-  link: "_link_12168_215",
-  fadein: "_fadein_12168_1",
+  container: "_container_13yse_1",
+  box: "_box_13yse_4",
+  flex: "_flex_13yse_60",
+  songItem: "_songItem_13yse_68",
+  title: "_title_13yse_72",
+  "autoplay-container": "_autoplay-container_13yse_77",
+  "autoplay-label": "_autoplay-label_13yse_84",
+  toggle_input: "_toggle_input_13yse_89",
+  toggle_label: "_toggle_label_13yse_96",
+  "isearch-container": "_isearch-container_13yse_129",
+  "isearch-label": "_isearch-label_13yse_133",
+  "close-btn": "_close-btn_13yse_137",
+  overlay: "_overlay_13yse_146",
+  "overlay-iframe": "_overlay-iframe_13yse_159",
+  "overlay-inner": "_overlay-inner_13yse_164",
+  scroll: "_scroll_13yse_170",
+  link: "_link_13yse_222",
+  fadein: "_fadein_13yse_1",
 };
 var Tn,
-  C,
+  w,
   Dn,
   tt,
   R,
@@ -1419,7 +1419,7 @@ function Pe(e, n, t, r, l) {
     __i: -1,
     __u: 0,
   };
-  return l == null && C.vnode != null && C.vnode(_), _;
+  return l == null && w.vnode != null && w.vnode(_), _;
 }
 f(Pe, "S");
 function K(e) {
@@ -1442,7 +1442,7 @@ function _t(e, n, t) {
   var r, l = e.__v, _ = l.__e, a = e.__P;
   if (a) {
     return (r = N({}, l)).__v = l.__v + 1,
-      C.vnode && C.vnode(r),
+      w.vnode && w.vnode(r),
       Wn(
         a,
         r,
@@ -1478,7 +1478,7 @@ function An(e) {
 f(An, "ee");
 function Cn(e) {
   (!e.__d && (e.__d = !0) && R.push(e) && !fe.__r++ ||
-    xn !== C.debounceRendering) && ((xn = C.debounceRendering) || Un)(fe);
+    xn !== w.debounceRendering) && ((xn = w.debounceRendering) || Un)(fe);
 }
 f(Cn, "I");
 function fe() {
@@ -1489,7 +1489,7 @@ function fe() {
         n = _t(e, r, l) || n,
         t === 0 || R.length > t
           ? (Pn(r, n, l), l.length = r.length = 0, n = void 0, R.sort(Te))
-          : n && C.__c && C.__c(n, He));
+          : n && w.__c && w.__c(n, He));
   }
   n && Pn(r, n, l), fe.__r = 0;
 }
@@ -1649,19 +1649,19 @@ function Sn(e) {
       if (e.t <= n.u) return;
       else e.t = Date.now();
     }
-    return n(C.event ? C.event(e) : e);
+    return n(w.event ? w.event(e) : e);
   }
 }
 f(Sn, "J");
 function En(e) {
-  if (this.l) return this.l[e.type + !0](C.event ? C.event(e) : e);
+  if (this.l) return this.l[e.type + !0](w.event ? w.event(e) : e);
 }
 f(En, "K");
 function Wn(e, n, t, r, l, _, a, s, u, c) {
   var d, o, v, i, p, y, g, h, m, x, P, S, D, H, A, b = n.type;
   if (n.constructor !== void 0) return null;
   128 & t.__u && (u = !!(32 & t.__u), _ = [s = n.__e = t.__e]),
-    (d = C.__b) && d(n);
+    (d = w.__b) && d(n);
   e: if (typeof b == "function") {
     try {
       if (
@@ -1726,7 +1726,7 @@ function Wn(e, n, t, r, l, _, a, s, u, c) {
           o.props = h,
           o.__P = e,
           o.__e = !1,
-          S = C.__r,
+          S = w.__r,
           D = 0,
           "prototype" in b && b.prototype.render
       ) {
@@ -1776,17 +1776,17 @@ function Wn(e, n, t, r, l, _, a, s, u, c) {
         u || _ != null
           ? (n.__e = s, n.__u |= u ? 160 : 32, _[_.indexOf(s)] = null)
           : (n.__e = t.__e, n.__k = t.__k),
-        C.__e(F, n, t);
+        w.__e(F, n, t);
     }
   } else {_ == null && n.__v === t.__v
       ? (n.__k = t.__k, n.__e = t.__e)
       : n.__e = ut(t.__e, n, t, r, l, _, a, u, c);}
-  (d = C.diffed) && d(n);
+  (d = w.diffed) && d(n);
 }
 f(Wn, "G");
 function Pn(e, n, t) {
   for (var r = 0; r < t.length; r++) Fe(t[r], t[++r], t[++r]);
-  C.__c && C.__c(n, e),
+  w.__c && w.__c(n, e),
     e.some(function (l) {
       try {
         e = l.__h,
@@ -1795,7 +1795,7 @@ function Pn(e, n, t) {
             _.call(l);
           });
       } catch (_) {
-        C.__e(_, l.__v);
+        w.__e(_, l.__v);
       }
     });
 }
@@ -1884,14 +1884,14 @@ function Fe(e, n, t) {
   try {
     typeof e == "function" ? e(n) : e.current = n;
   } catch (r) {
-    C.__e(r, t);
+    w.__e(r, t);
   }
 }
 f(Fe, "V");
 function Ue(e, n, t) {
   var r, l;
   if (
-    C.unmount && C.unmount(e),
+    w.unmount && w.unmount(e),
       (r = e.ref) && (r.current && r.current !== e.__e || Fe(r, null, n)),
       (r = e.__c) != null
   ) {
@@ -1899,7 +1899,7 @@ function Ue(e, n, t) {
       try {
         r.componentWillUnmount();
       } catch (_) {
-        C.__e(_, n);
+        w.__e(_, n);
       }
     }
     r.base = r.__P = null, e.__c = void 0;
@@ -1917,7 +1917,7 @@ function st(e, n, t) {
 }
 f(st, "ce");
 Tn = He.slice,
-  C = {
+  w = {
     __e: function (e, n, t, r) {
       for (var l, _, a; n = n.__;) {
         if ((l = n.__c) && !l.__) {
@@ -1964,7 +1964,7 @@ Tn = He.slice,
   fe.__r = 0,
   ot = 0;
 var ct = 0, zt = Array.isArray;
-function w(e, n, t, r, l, _) {
+function C(e, n, t, r, l, _) {
   var a, s, u = {};
   for (s in n) s == "ref" ? a = n[s] : u[s] = n[s];
   var c = {
@@ -1988,9 +1988,9 @@ function w(e, n, t, r, l, _) {
   if (typeof e == "function" && (a = e.defaultProps)) {
     for (s in a) u[s] === void 0 && (u[s] = a[s]);
   }
-  return C.vnode && C.vnode(c), c;
+  return w.vnode && w.vnode(c), c;
 }
-f(w, "g");
+f(C, "g");
 var at = f(() => {
     let [e, n] = B([]),
       [t, r] = B(""),
@@ -2032,44 +2032,46 @@ var at = f(() => {
       return y.length > 0 && i.push({ archiveTitle: p.archiveTitle, songs: y }),
         i;
     }, []);
-    return w("div", {
+    return C("div", {
       class: U.container,
       children: [
-        w("div", {
+        C("div", {
           class: U.box,
           children: [
-            w("h1", {
-              class: U.title,
-              children:
-                "\u732B\u9B54\u3057\u308D\u3042\u6B4C\u67A0\u30BB\u30C3\u30C8\u30EA\u30B9\u30C8",
+            C("div", {
+              children: C("h1", {
+                class: U.title,
+                children:
+                  "\u732B\u9B54\u3057\u308D\u3042\u6B4C\u67A0\u30BB\u30C3\u30C8\u30EA\u30B9\u30C8",
+              }),
             }),
-            w("div", {
+            C("div", {
               children: [
-                w("div", {
+                C("div", {
                   class: U["autoplay-container"],
                   children: [
-                    w("h2", {
+                    C("h2", {
                       class: U["autoplay-label"],
                       children: "\u81EA\u52D5\u518D\u751F",
                     }),
-                    w("input", {
+                    C("input", {
                       id: "autoplay",
                       class: U.toggle_input,
                       type: "checkbox",
                       onChange: (i) => s(i.currentTarget.checked),
                     }),
-                    w("label", { for: "autoplay", class: U.toggle_label }),
+                    C("label", { for: "autoplay", class: U.toggle_label }),
                   ],
                 }),
-                w("div", {
+                C("div", {
                   class: U["isearch-container"],
                   children: [
-                    w("label", {
+                    C("label", {
                       for: "isearch",
                       class: U["isearch-label"],
                       children: "\u691C\u7D22",
                     }),
-                    w("input", {
+                    C("input", {
                       id: "isearch",
                       ref: u,
                       type: "text",
@@ -2083,25 +2085,25 @@ var at = f(() => {
           ],
         }),
         l !== ""
-          ? w("div", {
+          ? C("div", {
             id: "overlay",
             class: `${U.overlay} overlay-event`,
             onClick: () => {
               _("");
             },
-            children: w("div", {
+            children: C("div", {
               class: U.flex,
-              children: w("div", {
+              children: C("div", {
                 id: "overlay-inner",
                 class: U["overlay-inner"],
                 children: [
-                  w("iframe", {
+                  C("iframe", {
                     id: "embed",
                     class: U["overlay-iframe"],
                     frameBorder: "0",
                     src: `${l}${a ? "&autoplay=1" : ""}`,
                   }),
-                  w("button", {
+                  C("button", {
                     id: "close-btn",
                     class: `${U["close-btn"]} overlay-event`,
                     type: "button",
@@ -2115,18 +2117,18 @@ var at = f(() => {
             }),
           })
           : null,
-        w("div", {
+        C("div", {
           class: `p-10 ${U.scroll}`,
           children: v.map((i) =>
-            w("div", {
+            C("div", {
               class: "grid grid-cols-2",
               children: [
-                w("p", { children: i.archiveTitle }),
-                w("ul", {
+                C("p", { children: i.archiveTitle }),
+                C("ul", {
                   children: i.songs.map((p) =>
-                    w("li", {
+                    C("li", {
                       class: U.songItem,
-                      children: w("a", {
+                      children: C("a", {
                         class: `${U.link} overlay-event`,
                         onClick: () => {
                           _(p.startURL);
@@ -2140,14 +2142,14 @@ var at = f(() => {
             })
           ),
         }),
-        w("footer", {
+        C("footer", {
           class: "info",
-          children: w("p", { children: "\xA92023+ raa0121" }),
+          children: C("p", { children: "\xA92023+ raa0121" }),
         }),
       ],
     });
   }, "App"),
-  Le = w(at, {});
+  Le = C(at, {});
 document.getElementById("lume-live-reload")
   ? (console.log("CSR"), le(Le, document.getElementById("app")))
   : (console.log("SSR hydrate"), ie(Le, document.getElementById("app")));

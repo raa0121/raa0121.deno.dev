@@ -70,7 +70,9 @@ const App = () => {
   return (
     <div class={styles.container}>
       <div class={styles.box}>
-        <h1 class={styles.title}>猫魔しろあ歌枠セットリスト</h1>
+        <div>
+          <h1 class={styles.title}>猫魔しろあ歌枠セットリスト</h1>
+        </div>
         <div>
           <div class={styles["autoplay-container"]}>
             <h2 class={styles["autoplay-label"]}>自動再生</h2>
