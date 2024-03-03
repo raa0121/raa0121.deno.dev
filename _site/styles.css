@@ -3,10 +3,10 @@ body {
   margin: 0;
   padding: 0;
 }
-._container_1gw89_1 {
+._container_1tuln_1 {
 }
 
-._box_1gw89_4 {
+._box_1tuln_4 {
   position: sticky;
   width: 100%;
   padding: 5px 0;
@@ -18,35 +18,32 @@ body {
   border-bottom: 2px solid #F9C;
 }
 
-._box_1gw89_4 div {
+._box_1tuln_4 div {
   display: flex;
   align-items: center;
 }
 
-._box_1gw89_4 > div {
+._box_1tuln_4 > div {
   flex-direction: row-reverse;
 }
 
-._box_1gw89_4 div div {
+._box_1tuln_4 div div {
   margin: 0 0 0 15px;
 }
 
-._box_1gw89_4 h2 {
+._box_1tuln_4 h2 {
   margin: 0 0.5em 0 0;
   font-size: 1em;
 }
 
-._box_1gw89_4 label {
+._box_1tuln_4 label {
   margin: 0 0.5em 0 0;
 }
 
 @media screen and (max-width:840px) {
-  ._box_1gw89_4 {
+  ._box_1tuln_4 {
     display: flex;
     flex-flow: column;
-  }
-  ._title_1gw89_43 {
-    font-size: 1.6em;
   }
 }
 
@@ -64,7 +61,7 @@ h1:before {
   background-size: contain;
 }
 
-._flex_1gw89_63 {
+._flex_1tuln_60 {
   width: 100%;
   height: 100%;
   display: flex;
@@ -72,49 +69,49 @@ h1:before {
   align-items: center;
 }
 
-._songItem_1gw89_71 {
+._songItem_1tuln_68 {
   list-style: none;
 }
 
-._title_1gw89_43 {
+._title_1tuln_72 {
   font-size: 1.8em;
   margin: 12px 0;
 }
 
 @media screen and (max-width:840px) {
-  ._title_1gw89_43 {
-    font-size: 1.6em;
+  ._title_1tuln_72 {
+    font-size: 1.4em;
   }
 }
 
-._autoplay-container_1gw89_85 {
+._autoplay-container_1tuln_83 {
   display: flex;
   justify-content: end;
   align-items: center;
   gap: 16px;
 }
 
-._autoplay-label_1gw89_92 {
+._autoplay-label_1tuln_90 {
   margin: 8px 0;
   font-size: 1.2rem;
 }
 
-._toggle_input_1gw89_97 {
+._toggle_input_1tuln_95 {
   position: absolute;
   z-index: 5;
   opacity: 0;
   cursor: pointer;
 }
 
-._toggle_input_1gw89_97:checked+._toggle_label_1gw89_104 {
+._toggle_input_1tuln_95:checked+._toggle_label_1tuln_102 {
   background-color: #4BD865;
 }
 
-._toggle_input_1gw89_97:checked+._toggle_label_1gw89_104:after {
+._toggle_input_1tuln_95:checked+._toggle_label_1tuln_102:after {
   left: 30px;
 }
 
-._toggle_label_1gw89_104 {
+._toggle_label_1tuln_102 {
   width: 55px;
   height: 25px;
   background: #ccc;
@@ -125,7 +122,7 @@ h1:before {
   box-sizing: border-box;
 }
 
-._toggle_label_1gw89_104:after {
+._toggle_label_1tuln_102:after {
   content: "";
   position: absolute;
   width: 25px;
@@ -139,15 +136,15 @@ h1:before {
   transition: 0.4s;
 }
 
-._isearch-container_1gw89_137 {
+._isearch-container_1tuln_135 {
   margin: 8px 4px;
 }
 
-._isearch-label_1gw89_141 {
+._isearch-label_1tuln_139 {
   margin: 0 8px;
 }
 
-._close-btn_1gw89_145 {
+._close-btn_1tuln_143 {
   display: block;
   margin: 20px auto;
   padding: 10px 30px;
@@ -156,7 +153,7 @@ h1:before {
   cursor: pointer;
 }
 
-._overlay_1gw89_154 {
+._overlay_1tuln_152 {
   position: fixed;
   top: 0;
   left: 0;
@@ -169,46 +166,46 @@ h1:before {
   opacity: 1;
 }
 
-._overlay-iframe_1gw89_167 {
+._overlay-iframe_1tuln_165 {
   width: 70vw;
   height: 70vh;
 }
 
-._overlay-inner_1gw89_172 {
+._overlay-inner_1tuln_170 {
   padding: 10px 60px;
   background-color: #FFF;
   text-align: center;
 }
 
-._scroll_1gw89_178 {
+._scroll_1tuln_176 {
   display: flex;
   flex-wrap: wrap;
   margin: 5px 0 30px;
 }
 
-._scroll_1gw89_178 > div {
+._scroll_1tuln_176 > div {
   width: 320px;
   margin: 0 0 15px 15px;
   padding: 0 15px;
   border: 1px solid #CCC;
 }
 
-._scroll_1gw89_178 p  {
+._scroll_1tuln_176 p  {
   margin: 1em 0;
 }
 
-._scroll_1gw89_178 ul {
+._scroll_1tuln_176 ul {
   margin: 0.5em 0;
   padding: 0;
   list-style: none;
 }
 
-._scroll_1gw89_178 li {
+._scroll_1tuln_176 li {
   margin: 0.2em;
   line-height:1.2em;
 }
 
-._scroll_1gw89_178 a {
+._scroll_1tuln_176 a {
   display: block;
   padding: 0.3em 0.5em 0.2em;
   border-radius: 1em;
@@ -216,13 +213,13 @@ h1:before {
   color: #36E;
 }
 
-._scroll_1gw89_178 a:hover {
+._scroll_1tuln_176 a:hover {
   background: #F9C;
   color: #FFF;
   cursor: pointer;
 }
 
-@keyframes _fadein_1gw89_1 {
+@keyframes _fadein_1tuln_1 {
   0% {
     opacity: 0
   }
@@ -232,11 +229,11 @@ h1:before {
   }
 }
 
-._link_1gw89_230 {
+._link_1tuln_228 {
   color: rgb(29 78 216);
 }
 
-._link_1gw89_230:hover {
+._link_1tuln_228:hover {
   text-decoration: underline;
   cursor: pointer;
 }
