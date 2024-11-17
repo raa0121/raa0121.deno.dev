@@ -33,3 +33,4 @@ jobs:
         with:
           project: raa0121
           entrypoint: server/main.ts
+          import-map: "./import_map.json"
