@@ -11,6 +11,7 @@ const cssBundler = (options: { filename: string }) => (site: Site) => {
   // TODO: Depends implicit order that passed root .css file at last.
   site.process([".css"], (pages) => {
     pages.forEach((page) => {
+      console.log(`[cssBundler] ${page.data.url}`);
       if (page.data.url == outFile) {
         page.content = [page.content, ...moduleContents.values()].join("");
       } else if (page.data.url) {
