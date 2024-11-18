@@ -8,18 +8,21 @@ import postcssModules from "npm:postcss-modules";
 const cssBundler = (options: { filename: string }) => (site: Site) => {
   const outFile = `/${options.filename}`;
   const moduleContents = new Map<string, Content>();
-  // TODO: Depends implicit order that passed root .css file at last.
   site.process([".css"], (pages) => {
     pages.forEach((page) => {
-      if (page.data.url == outFile) {
-        page.content = [page.content, ...moduleContents.values()].join("");
-      } else if (page.data.url) {
+      if (page.data.url && page.data.url !== outFile) {
         moduleContents.set(page.outputPath, page.content ?? "");
         page.content = "";
       } else {
         // NOOP
       }
     });
+    // Root .css file must process at last.
+    const rootCssPage = pages.find((p) => p.data.url === outFile);
+    if (rootCssPage) {
+      rootCssPage.content = [rootCssPage.content, ...moduleContents.values()]
+        .join("");
+    }
   });
 };
 
