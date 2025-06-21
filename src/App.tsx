@@ -32,7 +32,10 @@ const App = () => {
     (async () => {
       const res = await fetch("/data.json");
       const data = (await res.json()) as Archive[];
-      setArchives(data);
+      const archives = data.map((i) => {
+        return {archiveTime: new Date(i.archiveTime), archiveTitle: i.archiveTitle, songs: i.songs}
+      })
+      setArchives(archives);
     })();
   }, []);
 
@@ -59,6 +62,7 @@ const App = () => {
 
       if (filteredSongs.length > 0) {
         filtered.push({
+          archiveTime: archive.archiveTime,
           archiveTitle: archive.archiveTitle,
           songs: filteredSongs,
         });
@@ -135,6 +139,7 @@ const App = () => {
         {filtered.map((archive) => (
           <div class="grid grid-cols-2">
             <p>{archive.archiveTitle}</p>
+            <p class={styles.date}>{archive.archiveTime.toLocaleDateString().replaceAll('/', '-')}</p>
             <ul>
               {archive.songs.map((song) => (
                 <li class={styles.songItem}>

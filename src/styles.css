@@ -1,5 +1,4 @@
-.container {
-}
+.container {}
 
 .box {
   position: sticky;
@@ -9,8 +8,8 @@
   left: 0;
   display: flex;
   align-items: center;
-  background: #FFF;
-  border-bottom: 2px solid #F9C;
+  background: #fff;
+  border-bottom: 2px solid #f9c;
 }
 
 .box div {
@@ -35,13 +34,12 @@
   margin: 0 0.5em 0 0;
 }
 
-@media screen and (max-width:840px) {
+@media screen and (max-width: 840px) {
   .box {
     display: flex;
     flex-flow: column;
   }
 }
-
 
 h1 {
   margin: 0 0 0 15px;
@@ -74,7 +72,7 @@ h1:before {
   margin: 12px 0;
 }
 
-@media screen and (max-width:840px) {
+@media screen and (max-width: 840px) {
   .title {
     font-size: 1.4em;
   }
@@ -99,11 +97,11 @@ h1:before {
   cursor: pointer;
 }
 
-.toggle_input:checked+.toggle_label {
-  background-color: #4BD865;
+.toggle_input:checked + .toggle_label {
+  background-color: #4bd865;
 }
 
-.toggle_input:checked+.toggle_label:after {
+.toggle_input:checked + .toggle_label:after {
   left: 30px;
 }
 
@@ -169,7 +167,7 @@ h1:before {
 
 .overlay-inner {
   padding: 10px 60px;
-  background-color: #FFF;
+  background-color: #fff;
   text-align: center;
 }
 
@@ -183,10 +181,10 @@ h1:before {
   width: 320px;
   margin: 0 0 15px 15px;
   padding: 0 15px;
-  border: 1px solid #CCC;
+  border: 1px solid #ccc;
 }
 
-.scroll p  {
+.scroll p {
   margin: 1em 0;
 }
 
@@ -198,30 +196,30 @@ h1:before {
 
 .scroll li {
   margin: 0.2em;
-  line-height:1.2em;
+  line-height: 1.2em;
 }
 
 .scroll a {
   display: block;
   padding: 0.3em 0.5em 0.2em;
   border-radius: 1em;
-  background: #FCE;
-  color: #36E;
+  background: #fce;
+  color: #36e;
 }
 
 .scroll a:hover {
-  background: #F9C;
-  color: #FFF;
+  background: #f9c;
+  color: #fff;
   cursor: pointer;
 }
 
 @keyframes fadein {
   0% {
-    opacity: 0
+    opacity: 0;
   }
 
   100% {
-    opacity: 1
+    opacity: 1;
   }
 }
 
@@ -240,10 +238,14 @@ footer {
   padding: 5px 0;
   bottom: 0;
   left: 0;
-  background: #FFF;
-  border-top: 2px solid #F9C;
+  background: #fff;
+  border-top: 2px solid #f9c;
   font-size: 80%;
 }
 footer p {
   margin: 0 15px;
+}
+
+.date {
+  text-align: right;
 }

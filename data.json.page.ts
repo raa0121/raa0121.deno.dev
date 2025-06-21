@@ -24,11 +24,12 @@ type Song = {
 };
 export type Archive = {
   archiveTitle: string;
+  archiveTime: Date;
   songs: Song[];
 };
 
 const response = await fetch(
-  "https://script.google.com/macros/s/AKfycbz4OIhijFjJKscOx8V43rzUj4E2pe9MyHMj3327KscStJoE48EDIOEjRf554zthpitBMA/exec",
+  "https://script.google.com/macros/s/AKfycbzQGP4WyU0NGuHkNPkjmPoVA01MoYBYLD3_-woaIXm1FKwYIsLIan6YVgfja_yDWwosWg/exec",
 );
 const data = (await response.json()) as Response;
 const songs = data.status === "ok" ? data.songs : [];
@@ -38,7 +39,11 @@ const archives = songs.reduce<Archive[]>((archives, song) => {
   if (archive) {
     archive.songs.push(song);
   } else {
-    archives.push({ archiveTitle: song.archiveTitle, songs: [song] });
+    archives.push({
+      archiveTime: song.archiveTime,
+      archiveTitle: song.archiveTitle,
+      songs: [song],
+    });
   }
   return archives;
 }, []);
